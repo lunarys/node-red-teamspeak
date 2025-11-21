@@ -1,0 +1,78 @@
+[
+    {
+        "id": "f3dedd0a687b75c6",
+        "type": "ts3-call",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "configid": "f1f0502a685b5bcc",
+        "selection": "sendTextMessage",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "a0c47bc2dfd4af57"
+            ]
+        ]
+    },
+    {
+        "id": "aca8e8d95bd6f960",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[0,3,\"test\"]",
+        "payloadType": "json",
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "f3dedd0a687b75c6"
+            ]
+        ]
+    },
+    {
+        "id": "a0c47bc2dfd4af57",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f1f0502a685b5bcc",
+        "type": "ts3-config",
+        "name": "wsl-dev",
+        "host": "teamspeak-dev",
+        "nickname": "ServerQuery"
+    },
+    {
+        "id": "ad8fbabdd60b15d8",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@lunarys/node-red-teamspeak": "0.0.1"
+        }
+    }
+]

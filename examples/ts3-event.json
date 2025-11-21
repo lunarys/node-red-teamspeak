@@ -1,0 +1,49 @@
+[
+    {
+        "id": "a9651c6f9f16e953",
+        "type": "ts3-event",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "configid": "f1f0502a685b5bcc",
+        "selection": "textmessage",
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "6f4b298e657b75dc"
+            ]
+        ]
+    },
+    {
+        "id": "6f4b298e657b75dc",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f1f0502a685b5bcc",
+        "type": "ts3-config",
+        "name": "wsl-dev",
+        "host": "teamspeak-dev",
+        "nickname": "ServerQuery"
+    },
+    {
+        "id": "d372f7a5bc1254ec",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@lunarys/node-red-teamspeak": "0.0.1"
+        }
+    }
+]
