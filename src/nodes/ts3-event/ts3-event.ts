@@ -11,9 +11,6 @@ const nodeInit: NodeInitializer = (RED: NodeAPI) => {
 
     const ts3Config = RED.nodes.getNode(config.configid) as any;
 
-    // Set initial status
-    this.status({ fill: "grey", shape: "ring", text: "Initializing..." });
-
     // Status listeners for connection state
     ts3Config.addListener("connected", () => {
       this.status({ fill: "green", shape: "dot", text: "Connected" });
