@@ -1,7 +1,14 @@
 import { TeamSpeak, QueryProtocol } from "ts3-nodejs-library";
+import { NodeAPI, Node, NodeDef, NodeInitializer } from 'node-red';
 
-const nodeInit = (RED: any) => {
-  function TS3Config(this: any, config: any) {
+interface Ts3ConfigConfig extends NodeDef {
+  host: string;
+  nickname: string;
+  name: string;
+}
+
+const nodeInit: NodeInitializer = (RED: NodeAPI) => {
+  function TS3Config(this: any, config: Ts3ConfigConfig) {
     RED.nodes.createNode(this, config);
 
     const host: string = config.host;
@@ -64,7 +71,7 @@ const nodeInit = (RED: any) => {
     });
   }
 
-  RED.nodes.registerType("TS3Config", TS3Config, {
+  RED.nodes.registerType("ts3-config", TS3Config, {
     credentials: {
       username: { type: "text" },
       password: { type: "password" }

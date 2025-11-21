@@ -8,3 +8,12 @@ To pass parameters to the "call" node simply put it as the `msg.payload` as an a
 
 # Install
 `npm i node-red-contrib-teamspeak --save` or via the Node-RED ui.
+
+# Dev
+
+Use `docker-compose up` to run a empty instance of node-red, exec into the container and install the nodes:
+
+```
+docker exec node-red-ts-dev npm i /mnt
+```
+

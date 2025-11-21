@@ -1,0 +1,25 @@
+services:
+  node-red:
+    container_name: node-red-ts-dev
+    image: nodered/node-red
+    volumes:
+      - .:/mnt
+      - nodered_data:/data
+    ports:
+      - 1880:1880
+
+  teamspeak:
+    container_name: teamspeak-dev
+    image: teamspeak
+    ports:
+      - 9987:9987/udp
+      - 10011:10011
+    environment:
+      TS3SERVER_LICENSE: accept
+    volumes:
+      - teamspeak_data:/var/ts3server/
+
+
+volumes:
+  nodered_data:
+  teamspeak_data:
