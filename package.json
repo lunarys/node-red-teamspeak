@@ -1,6 +1,6 @@
 {
     "name": "@lunarys/node-red-teamspeak",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Node-RED teamspeak node",
     "main": "dist/nodes/ts3-config/ts3-config.js",
     "license": "MIT",
