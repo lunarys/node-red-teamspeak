@@ -16,7 +16,7 @@ which was not updated anymore, had bugs and had no source code repository availa
 
 # Dev
 
-Use `docker-compose up` to run a empty instance of node-red, exec into the container and install the nodes:
+Use `docker compose up` to run a empty instance of node-red, exec into the container and install the nodes:
 
 ```
 docker exec node-red-ts-dev npm i /mnt
