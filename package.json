@@ -1,8 +1,12 @@
 {
     "name": "@lunarys/node-red-teamspeak",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Node-RED teamspeak node",
     "license": "MIT",
+    "keywords": [
+        "node-red",
+        "teamspeak"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/lunarys/node-red-teamspeak.git"
