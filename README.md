@@ -6,6 +6,10 @@ It includes 3 nodes:
 
 To pass parameters to the "call" node simply put it as the `msg.payload` as an array. You can lookup the functions at the TS3-NodeJS-Library [documentation](https://multivit4min.github.io/TS3-NodeJS-Library/classes/teamspeak.teamspeak-2.html). 
 
+
+> This is based on [node-red-contrib-teamspeak](https://www.npmjs.com/package/node-red-contrib-teamspeak),
+which was not updated anymore, had bugs and had no source code repository available.
+
 # Install
 `npm i node-red-contrib-teamspeak --save` or via the Node-RED ui.
 
