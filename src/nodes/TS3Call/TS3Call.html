@@ -1,0 +1,349 @@
+<script type="text/javascript">
+RED.nodes.registerType("TS3Call", {
+    category: "function",
+    color: "#a6bbcf",
+    defaults: {
+        name: { value: "" },
+        configid: { type: "TS3Config", value: "" },
+        selection: { value: "version" }
+    },
+    inputs: 1,
+    outputs: 1,
+    label: function () {
+        return this.name || "TS3 " + this.selection;
+    }
+});
+
+</script>
+
+<script type="text/html" data-template-name="TS3Call">
+<div class="form-row">
+    <label for="node-input-name"><i class="fa fa-globe"></i> Name</label>
+    <input type="text" id="node-input-name">
+</div>
+<div class="form-row">
+    <label for="node-input-configid"><i class="fa fa-server"></i> Connection</label>
+    <input type="text" id="node-input-configid">
+</div>
+<div class="form-row">
+    <label for="node-input-configid"><i class="fa fa-terminal"></i> Function</label>
+    <select class="form-select" id="node-input-selection">
+        <option value="queryLoginAdd">queryLoginAdd</option>
+        <option value="queryLoginDel">queryLoginDel</option>
+        <option value="queryLoginList">queryLoginList</option>
+        <option value="apiKeyAdd">apiKeyAdd</option>
+        <option value="apiKeyList">apiKeyList</option>
+        <option value="apiKeyDel">apiKeyDel</option>
+        <option value="clientSetServerQueryLogin">clientSetServerQueryLogin</option>
+        <option value="clientUpdate">clientUpdate</option>
+        <option value="version">version</option>
+        <option value="hostInfo">hostInfo</option>
+        <option value="instanceInfo">instanceInfo</option>
+        <option value="instanceEdit">instanceEdit</option>
+        <option value="bindingList">bindingList</option>
+        <option value="useByPort">useByPort</option>
+        <option value="useBySid">useBySid</option>
+        <option value="whoami">whoami</option>
+        <option value="serverInfo">serverInfo</option>
+        <option value="serverIdGetByPort">serverIdGetByPort</option>
+        <option value="serverEdit">serverEdit</option>
+        <option value="serverProcessStop">serverProcessStop</option>
+        <option value="connectionInfo">connectionInfo</option>
+        <option value="serverCreate">serverCreate</option>
+        <option value="serverDelete">serverDelete</option>
+        <option value="serverStart">serverStart</option>
+        <option value="serverStop">serverStop</option>
+        <option value="serverGroupCreate">serverGroupCreate</option>
+        <option value="serverGroupClientList">serverGroupClientList</option>
+        <option value="serverGroupAddClient">serverGroupAddClient</option>
+        <option value="serverGroupDelClient">serverGroupDelClient</option>
+        <option value="serverGroupsByClientId">serverGroupsByClientId</option>
+        <option value="clientAddServerGroup">clientAddServerGroup</option>
+        <option value="clientDelServerGroup">clientDelServerGroup</option>
+        <option value="serverGroupDel">serverGroupDel</option>
+        <option value="serverGroupCopy">serverGroupCopy</option>
+        <option value="serverGroupRename">serverGroupRename</option>
+        <option value="serverGroupPermList">serverGroupPermList</option>
+        <option value="serverGroupAddPerm">serverGroupAddPerm</option>
+        <option value="serverGroupDelPerm">serverGroupDelPerm</option>
+        <option value="serverTempPasswordAdd">serverTempPasswordAdd</option>
+        <option value="serverTempPasswordDel">serverTempPasswordDel</option>
+        <option value="serverTempPasswordList">serverTempPasswordList</option>
+        <option value="channelCreate">channelCreate</option>
+        <option value="channelGroupCreate">channelGroupCreate</option>
+        <option value="getChannelById">getChannelById</option>
+        <option value="getChannelByName">getChannelByName</option>
+        <option value="channelFind">channelFind</option>
+        <option value="channelInfo">channelInfo</option>
+        <option value="channelMove">channelMove</option>
+        <option value="channelDelete">channelDelete</option>
+        <option value="channelEdit">channelEdit</option>
+        <option value="channelPermList">channelPermList</option>
+        <option value="channelSetPerm">channelSetPerm</option>
+        <option value="channelSetPerms">channelSetPerms</option>
+        <option value="channelDelPerm">channelDelPerm</option>
+        <option value="getClientById">getClientById</option>
+        <option value="getClientByDbid">getClientByDbid</option>
+        <option value="getClientByUid">getClientByUid</option>
+        <option value="getClientByName">getClientByName</option>
+        <option value="clientInfo">clientInfo</option>
+        <option value="clientDbList">clientDbList</option>
+        <option value="clientDbInfo">clientDbInfo</option>
+        <option value="clientKick">clientKick</option>
+        <option value="clientMove">clientMove</option>
+        <option value="clientPoke">clientPoke</option>
+        <option value="clientPermList">clientPermList</option>
+        <option value="clientAddPerm">clientAddPerm</option>
+        <option value="clientDelPerm">clientDelPerm</option>
+        <option value="customSearch">customSearch</option>
+        <option value="customInfo">customInfo</option>
+        <option value="customDelete">customDelete</option>
+        <option value="customSet">customSet</option>
+        <option value="sendTextMessage">sendTextMessage</option>
+        <option value="sendChannelMessage">sendChannelMessage</option>
+        <option value="getServerGroupById">getServerGroupById</option>
+        <option value="getServerGroupByName">getServerGroupByName</option>
+        <option value="getChannelGroupById">getChannelGroupById</option>
+        <option value="getChannelGroupByName">getChannelGroupByName</option>
+        <option value="setClientChannelGroup">setClientChannelGroup</option>
+        <option value="deleteChannelGroup">deleteChannelGroup</option>
+        <option value="channelGroupCopy">channelGroupCopy</option>
+        <option value="channelGroupRename">channelGroupRename</option>
+        <option value="channelGroupPermList">channelGroupPermList</option>
+        <option value="channelGroupAddPerm">channelGroupAddPerm</option>
+        <option value="channelGroupDelPerm">channelGroupDelPerm</option>
+        <option value="channelGroupClientList">channelGroupClientList</option>
+        <option value="permOverview">permOverview</option>
+        <option value="permissionList">permissionList</option>
+        <option value="permIdGetByName">permIdGetByName</option>
+        <option value="permIdsGetByName">permIdsGetByName</option>
+        <option value="permGet">permGet</option>
+        <option value="permFind">permFind</option>
+        <option value="permReset">permReset</option>
+        <option value="privilegeKeyList">privilegeKeyList</option>
+        <option value="privilegeKeyAdd">privilegeKeyAdd</option>
+        <option value="serverGroupPrivilegeKeyAdd">serverGroupPrivilegeKeyAdd</option>
+        <option value="channelGroupPrivilegeKeyAdd">channelGroupPrivilegeKeyAdd</option>
+        <option value="privilegeKeyDelete">privilegeKeyDelete</option>
+        <option value="privilegeKeyUse">privilegeKeyUse</option>
+        <option value="messageList">messageList</option>
+        <option value="messageAdd">messageAdd</option>
+        <option value="messageDel">messageDel</option>
+        <option value="messageGet">messageGet</option>
+        <option value="messageUpdate">messageUpdate</option>
+        <option value="complainList">complainList</option>
+        <option value="complainAdd">complainAdd</option>
+        <option value="complainDel">complainDel</option>
+        <option value="banList">banList</option>
+        <option value="ban">ban</option>
+        <option value="banClient">banClient</option>
+        <option value="banDel">banDel</option>
+        <option value="logView">logView</option>
+        <option value="logAdd">logAdd</option>
+        <option value="gm">gm</option>
+        <option value="clientFind">clientFind</option>
+        <option value="clientGetIds">clientGetIds</option>
+        <option value="clientGetDbidFromUid">clientGetDbidFromUid</option>
+        <option value="clientGetNameFromUid">clientGetNameFromUid</option>
+        <option value="clientGetUidFromClid">clientGetUidFromClid</option>
+        <option value="clientGetNameFromDbid">clientGetNameFromDbid</option>
+        <option value="clientEdit">clientEdit</option>
+        <option value="clientDbFind">clientDbFind</option>
+        <option value="clientDbEdit">clientDbEdit</option>
+        <option value="clientDbDelete">clientDbDelete</option>
+        <option value="serverList">serverList</option>
+        <option value="channelClientPermList">channelClientPermList</option>
+        <option value="channelGroupList">channelGroupList</option>
+        <option value="serverGroupList">serverGroupList</option>
+        <option value="channelList">channelList</option>
+        <option value="clientList">clientList</option>
+        <option value="ftList">ftList</option>
+        <option value="ftGetFileList">ftGetFileList</option>
+        <option value="ftGetFileInfo">ftGetFileInfo</option>
+        <option value="ftStop">ftStop</option>
+        <option value="ftDeleteFile">ftDeleteFile</option>
+        <option value="ftCreateDir">ftCreateDir</option>
+        <option value="ftRenameFile">ftRenameFile</option>
+        <option value="ftInitUpload">ftInitUpload</option>
+        <option value="ftInitDownload">ftInitDownload</option>
+        <option value="uploadFile">uploadFile</option>
+        <option value="downloadFile">downloadFile</option>
+        <option value="downloadIcon">downloadIcon</option>
+        <option value="uploadIcon">uploadIcon</option>
+        <option value="getIconId">getIconId</option>
+        <option value="createSnapshot">createSnapshot</option>
+        <option value="deploySnapshot">deploySnapshot</option>
+    </select>
+    <div class="form-row">
+        You can find documentation for all functions
+        <a target="_blank"
+            href="https://multivit4min.github.io/TS3-NodeJS-Library/classes/teamspeak.teamspeak-2.html#on"> here</a>
+    </div>
+</div>
+</script>
+
+<script type="text/html" data-help-name="TS3Call">
+<div class="form-row">
+    <label for="node-input-name"><i class="fa fa-globe"></i> Name</label>
+    <input type="text" id="node-input-name">
+</div>
+<div class="form-row">
+    <label for="node-input-configid"><i class="fa fa-server"></i> Connection</label>
+    <input type="text" id="node-input-configid">
+</div>
+<div class="form-row">
+    <label for="node-input-configid"><i class="fa fa-terminal"></i> Function</label>
+    <select class="form-select" id="node-input-selection">
+        <option value="queryLoginAdd">queryLoginAdd</option>
+        <option value="queryLoginDel">queryLoginDel</option>
+        <option value="queryLoginList">queryLoginList</option>
+        <option value="apiKeyAdd">apiKeyAdd</option>
+        <option value="apiKeyList">apiKeyList</option>
+        <option value="apiKeyDel">apiKeyDel</option>
+        <option value="clientSetServerQueryLogin">clientSetServerQueryLogin</option>
+        <option value="clientUpdate">clientUpdate</option>
+        <option value="version">version</option>
+        <option value="hostInfo">hostInfo</option>
+        <option value="instanceInfo">instanceInfo</option>
+        <option value="instanceEdit">instanceEdit</option>
+        <option value="bindingList">bindingList</option>
+        <option value="useByPort">useByPort</option>
+        <option value="useBySid">useBySid</option>
+        <option value="whoami">whoami</option>
+        <option value="serverInfo">serverInfo</option>
+        <option value="serverIdGetByPort">serverIdGetByPort</option>
+        <option value="serverEdit">serverEdit</option>
+        <option value="serverProcessStop">serverProcessStop</option>
+        <option value="connectionInfo">connectionInfo</option>
+        <option value="serverCreate">serverCreate</option>
+        <option value="serverDelete">serverDelete</option>
+        <option value="serverStart">serverStart</option>
+        <option value="serverStop">serverStop</option>
+        <option value="serverGroupCreate">serverGroupCreate</option>
+        <option value="serverGroupClientList">serverGroupClientList</option>
+        <option value="serverGroupAddClient">serverGroupAddClient</option>
+        <option value="serverGroupDelClient">serverGroupDelClient</option>
+        <option value="serverGroupsByClientId">serverGroupsByClientId</option>
+        <option value="clientAddServerGroup">clientAddServerGroup</option>
+        <option value="clientDelServerGroup">clientDelServerGroup</option>
+        <option value="serverGroupDel">serverGroupDel</option>
+        <option value="serverGroupCopy">serverGroupCopy</option>
+        <option value="serverGroupRename">serverGroupRename</option>
+        <option value="serverGroupPermList">serverGroupPermList</option>
+        <option value="serverGroupAddPerm">serverGroupAddPerm</option>
+        <option value="serverGroupDelPerm">serverGroupDelPerm</option>
+        <option value="serverTempPasswordAdd">serverTempPasswordAdd</option>
+        <option value="serverTempPasswordDel">serverTempPasswordDel</option>
+        <option value="serverTempPasswordList">serverTempPasswordList</option>
+        <option value="channelCreate">channelCreate</option>
+        <option value="channelGroupCreate">channelGroupCreate</option>
+        <option value="getChannelById">getChannelById</option>
+        <option value="getChannelByName">getChannelByName</option>
+        <option value="channelFind">channelFind</option>
+        <option value="channelInfo">channelInfo</option>
+        <option value="channelMove">channelMove</option>
+        <option value="channelDelete">channelDelete</option>
+        <option value="channelEdit">channelEdit</option>
+        <option value="channelPermList">channelPermList</option>
+        <option value="channelSetPerm">channelSetPerm</option>
+        <option value="channelSetPerms">channelSetPerms</option>
+        <option value="channelDelPerm">channelDelPerm</option>
+        <option value="getClientById">getClientById</option>
+        <option value="getClientByDbid">getClientByDbid</option>
+        <option value="getClientByUid">getClientByUid</option>
+        <option value="getClientByName">getClientByName</option>
+        <option value="clientInfo">clientInfo</option>
+        <option value="clientDbList">clientDbList</option>
+        <option value="clientDbInfo">clientDbInfo</option>
+        <option value="clientKick">clientKick</option>
+        <option value="clientMove">clientMove</option>
+        <option value="clientPoke">clientPoke</option>
+        <option value="clientPermList">clientPermList</option>
+        <option value="clientAddPerm">clientAddPerm</option>
+        <option value="clientDelPerm">clientDelPerm</option>
+        <option value="customSearch">customSearch</option>
+        <option value="customInfo">customInfo</option>
+        <option value="customDelete">customDelete</option>
+        <option value="customSet">customSet</option>
+        <option value="sendTextMessage">sendTextMessage</option>
+        <option value="sendChannelMessage">sendChannelMessage</option>
+        <option value="getServerGroupById">getServerGroupById</option>
+        <option value="getServerGroupByName">getServerGroupByName</option>
+        <option value="getChannelGroupById">getChannelGroupById</option>
+        <option value="getChannelGroupByName">getChannelGroupByName</option>
+        <option value="setClientChannelGroup">setClientChannelGroup</option>
+        <option value="deleteChannelGroup">deleteChannelGroup</option>
+        <option value="channelGroupCopy">channelGroupCopy</option>
+        <option value="channelGroupRename">channelGroupRename</option>
+        <option value="channelGroupPermList">channelGroupPermList</option>
+        <option value="channelGroupAddPerm">channelGroupAddPerm</option>
+        <option value="channelGroupDelPerm">channelGroupDelPerm</option>
+        <option value="channelGroupClientList">channelGroupClientList</option>
+        <option value="permOverview">permOverview</option>
+        <option value="permissionList">permissionList</option>
+        <option value="permIdGetByName">permIdGetByName</option>
+        <option value="permIdsGetByName">permIdsGetByName</option>
+        <option value="permGet">permGet</option>
+        <option value="permFind">permFind</option>
+        <option value="permReset">permReset</option>
+        <option value="privilegeKeyList">privilegeKeyList</option>
+        <option value="privilegeKeyAdd">privilegeKeyAdd</option>
+        <option value="serverGroupPrivilegeKeyAdd">serverGroupPrivilegeKeyAdd</option>
+        <option value="channelGroupPrivilegeKeyAdd">channelGroupPrivilegeKeyAdd</option>
+        <option value="privilegeKeyDelete">privilegeKeyDelete</option>
+        <option value="privilegeKeyUse">privilegeKeyUse</option>
+        <option value="messageList">messageList</option>
+        <option value="messageAdd">messageAdd</option>
+        <option value="messageDel">messageDel</option>
+        <option value="messageGet">messageGet</option>
+        <option value="messageUpdate">messageUpdate</option>
+        <option value="complainList">complainList</option>
+        <option value="complainAdd">complainAdd</option>
+        <option value="complainDel">complainDel</option>
+        <option value="banList">banList</option>
+        <option value="ban">ban</option>
+        <option value="banClient">banClient</option>
+        <option value="banDel">banDel</option>
+        <option value="logView">logView</option>
+        <option value="logAdd">logAdd</option>
+        <option value="gm">gm</option>
+        <option value="clientFind">clientFind</option>
+        <option value="clientGetIds">clientGetIds</option>
+        <option value="clientGetDbidFromUid">clientGetDbidFromUid</option>
+        <option value="clientGetNameFromUid">clientGetNameFromUid</option>
+        <option value="clientGetUidFromClid">clientGetUidFromClid</option>
+        <option value="clientGetNameFromDbid">clientGetNameFromDbid</option>
+        <option value="clientEdit">clientEdit</option>
+        <option value="clientDbFind">clientDbFind</option>
+        <option value="clientDbEdit">clientDbEdit</option>
+        <option value="clientDbDelete">clientDbDelete</option>
+        <option value="serverList">serverList</option>
+        <option value="channelClientPermList">channelClientPermList</option>
+        <option value="channelGroupList">channelGroupList</option>
+        <option value="serverGroupList">serverGroupList</option>
+        <option value="channelList">channelList</option>
+        <option value="clientList">clientList</option>
+        <option value="ftList">ftList</option>
+        <option value="ftGetFileList">ftGetFileList</option>
+        <option value="ftGetFileInfo">ftGetFileInfo</option>
+        <option value="ftStop">ftStop</option>
+        <option value="ftDeleteFile">ftDeleteFile</option>
+        <option value="ftCreateDir">ftCreateDir</option>
+        <option value="ftRenameFile">ftRenameFile</option>
+        <option value="ftInitUpload">ftInitUpload</option>
+        <option value="ftInitDownload">ftInitDownload</option>
+        <option value="uploadFile">uploadFile</option>
+        <option value="downloadFile">downloadFile</option>
+        <option value="downloadIcon">downloadIcon</option>
+        <option value="uploadIcon">uploadIcon</option>
+        <option value="getIconId">getIconId</option>
+        <option value="createSnapshot">createSnapshot</option>
+        <option value="deploySnapshot">deploySnapshot</option>
+    </select>
+    <div class="form-row">
+        You can find documentation for all functions
+        <a target="_blank"
+            href="https://multivit4min.github.io/TS3-NodeJS-Library/classes/teamspeak.teamspeak-2.html#on"> here</a>
+    </div>
+</div>
+</script>
