@@ -1,6 +1,6 @@
 {
     "name": "@lunarys/node-red-teamspeak",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Node-RED teamspeak node",
     "license": "MIT",
     "keywords": [
