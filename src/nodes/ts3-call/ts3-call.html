@@ -1,6 +1,6 @@
 <script type="text/javascript">
 RED.nodes.registerType("ts3-call", {
-    category: "function",
+    category: "network",
     color: "#a6bbcf",
     defaults: {
         name: { value: "" },
@@ -173,17 +173,48 @@ RED.nodes.registerType("ts3-call", {
         <option value="createSnapshot">createSnapshot</option>
         <option value="deploySnapshot">deploySnapshot</option>
     </select>
-    <div class="form-row">
-        You can find documentation for all functions
-        <a target="_blank"
-            href="https://multivit4min.github.io/TS3-NodeJS-Library/classes/teamspeak.teamspeak-2.html#on"> here</a>
-    </div>
 </div>
 </script>
 
 <script type="text/html" data-help-name="ts3-call">
-    You can find documentation for all functions
-        <a target="_blank"
-            href="https://www.npmjs.com/package/ts3-nodejs-library"> here</a>
+    <p>Executes TeamSpeak 3 ServerQuery commands.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">any | array</span></dt>
+        <dd>Arguments to pass to the selected function. Can be a single value or an array of arguments. The elements of the array are passed as parameters to the library function.</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">any</span></dt>
+        <dd>The result returned by the ServerQuery function.</dd>
+    </dl>
+    
+    <h3>Configuration</h3>
+    <dl class="message-properties">
+        <dt>Connection</dt>
+        <dd>The ts3-config node to use for connecting to the TeamSpeak server.</dd>
+        
+        <dt>Function</dt>
+        <dd>The ServerQuery function to execute (e.g., <code>clientList</code>, <code>channelList</code>, <code>sendTextMessage</code>).</dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>This node calls methods on the TeamSpeak ServerQuery client. The function is executed when a message 
+    is received, and the result is sent to the output.</p>
+    
+    <h4>Examples:</h4>
+    <ul>
+        <li><code>clientList</code> - Get list of connected clients (no arguments needed)</li>
+        <li><code>sendTextMessage</code> - Send a message (requires target and message text as arguments)</li>
+        <li><code>clientKick</code> - Kick a client (requires client ID and reason)</li>
+    </ul>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a target="_blank" href="https://www.npmjs.com/package/ts3-nodejs-library">TS3-NodeJS-Library</a></li>
+        <li><a target="_blank" href="https://multivit4min.github.io/TS3-NodeJS-Library/classes/TeamSpeak-1.html">Method documentation</a></li>
+    </ul>
 </script>
 

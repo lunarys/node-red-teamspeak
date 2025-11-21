@@ -1,6 +1,6 @@
 <script type="text/javascript">
 RED.nodes.registerType("ts3-event", {
-    category: "function",
+    category: "network",
     color: "#a6bbcf",
     defaults: {
         name: { value: "" },
@@ -42,8 +42,43 @@ RED.nodes.registerType("ts3-event", {
 </script>
 
 <script type="text/html" data-help-name="ts3-event">
-<div class="form-row">
-    You can find documentation for all events
-    <a target="_blank" href="https://multivit4min.github.io/TS3-NodeJS-Library/modules/types_events.html"> here</a>
-</div>
+    <p>Listens for events from the TeamSpeak 3 server.</p>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>Event data containing information about what happened on the server.</dd>
+    </dl>
+    
+    <h3>Configuration</h3>
+    <dl class="message-properties">
+        <dt>Connection</dt>
+        <dd>The ts3-config node to use for connecting to the TeamSpeak server.</dd>
+        
+        <dt>Event</dt>
+        <dd>The server event to listen for.</dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>This node subscribes to server events and emits a message whenever the selected event occurs. 
+    The event data is provided in <code>msg.payload</code>.</p>
+    
+    <h4>Available Events:</h4>
+    <ul>
+        <li><code>clientconnect</code> - Client joins the server</li>
+        <li><code>clientdisconnect</code> - Client leaves the server</li>
+        <li><code>clientmoved</code> - Client moves between channels</li>
+        <li><code>textmessage</code> - Text message sent (chat)</li>
+        <li><code>channelcreate</code> - New channel created</li>
+        <li><code>channeldelete</code> - Channel deleted</li>
+        <li><code>channeledit</code> - Channel properties changed</li>
+        <li><code>channelmove</code> - Channel moved</li>
+        <li><code>serveredit</code> - Server properties changed</li>
+        <li><code>tokenused</code> - Privilege key used</li>
+    </ul>
+
+    <h3>References</h3>
+    <ul>
+        <li><a target="_blank" href="https://www.npmjs.com/package/ts3-nodejs-library">TS3-NodeJS-Library</a></li>
+    </ul>
 </script>

@@ -41,5 +41,36 @@ RED.nodes.registerType("ts3-config", {
 </script>
 
 <script type="text/html" data-help-name="ts3-config">
-    <p>TODO</p>
+    <p>Configures a connection to a TeamSpeak 3 Server Query interface.</p>
+    
+    <h3>Configuration</h3>
+    <dl class="message-properties">
+        <dt>Name <span class="property-type">string</span></dt>
+        <dd>A friendly name for this connection.</dd>
+        
+        <dt>Hostname <span class="property-type">string</span></dt>
+        <dd>The hostname or IP address of the TeamSpeak 3 server.</dd>
+        
+        <dt>Nickname <span class="property-type">string</span></dt>
+        <dd>The nickname to use for the ServerQuery connection. Default: <code>ServerQuery</code></dd>
+        
+        <dt>Username <span class="property-type">string</span></dt>
+        <dd>ServerQuery login username (created via TeamSpeak 3 server admin).</dd>
+        
+        <dt>Password <span class="property-type">string</span></dt>
+        <dd>ServerQuery login password.</dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>This configuration node manages the connection to a TeamSpeak 3 server's ServerQuery interface. 
+    It handles automatic reconnection with exponential backoff if the connection is lost.</p>
+    
+    <p>The connection is shared across all <code>ts3-call</code> and <code>ts3-event</code> nodes 
+    that reference this configuration.</p>
+    
+    <h3>Requirements</h3>
+    <ul>
+        <li>TeamSpeak 3 server with ServerQuery enabled (default port 10011)</li>
+        <li>Valid ServerQuery credentials</li>
+    </ul>
 </script>
