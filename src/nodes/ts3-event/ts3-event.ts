@@ -30,7 +30,7 @@ const nodeInit: NodeInitializer = (RED: NodeAPI) => {
 
       client.addListener(config.selection, (event: any) => {
         const msg = {
-          payload: event,
+          payload: JSON.parse(JSON.stringify(event)),  // the library returns class instances, they behave badly/weirdly in Node-RED
         };
         this.send(msg);
       });

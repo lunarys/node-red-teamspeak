@@ -42,7 +42,8 @@ const nodeInit: NodeInitializer = (RED: NodeAPI) => {
           }
 
           try {
-            msg.payload = await member.apply(client, args);
+            const result = await member.apply(client, args);
+            msg.payload = JSON.parse(JSON.stringify(result));  // the library returns class instances, they behave badly/weirdly in Node-RED
           } catch (err) {
             this.error(`Failed to call ${config.selection}: ${err}`);
           }
