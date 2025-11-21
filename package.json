@@ -1,12 +1,11 @@
 {
     "name": "@lunarys/node-red-teamspeak",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Node-RED teamspeak node",
-    "main": "dist/nodes/ts3-config/ts3-config.js",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/lunarys/node-red-teamspeak"
+        "url": "git+https://github.com/lunarys/node-red-teamspeak.git"
     },
     "scripts": {
         "build": "tsc --build && copyfiles -u 1 src/**/*.html dist/"
@@ -31,7 +30,6 @@
         "@typescript-eslint/parser": "^8.47.0",
         "copyfiles": "^2.4.1",
         "eslint": "^9.39.1",
-        "mustache": "^4.2.0",
         "typescript": "^5.9.3"
     }
 }

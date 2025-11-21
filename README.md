@@ -12,7 +12,7 @@ which was not updated anymore, had bugs and had no source code repository availa
 
 # Install
 
-`npm i node-red-contrib-teamspeak --save` or via the Node-RED ui.
+`npm i @lunarys/node-red-teamspeak --save` or via the Node-RED ui.
 
 # Dev
 
