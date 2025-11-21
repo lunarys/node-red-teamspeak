@@ -21,8 +21,9 @@ const nodeInit: NodeInitializer = (RED: NodeAPI) => {
       this.status({ fill: "grey", shape: "dot", text: "not connected" });
     });
 
-    ts3Config.addListener("error", () => {
-      this.status({ fill: "red", shape: "dot", text: "Error" });
+    ts3Config.addListener("error", (errorMsg?: string) => {
+      const text = errorMsg ? `Error: ${errorMsg}` : "Error";
+      this.status({ fill: "red", shape: "dot", text });
     });
 
     this.on("input", async (msg: any, send: (msg: any) => void, done: (err?: Error) => void) => {
